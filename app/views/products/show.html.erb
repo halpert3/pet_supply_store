@@ -7,7 +7,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  <%= number_to_currency(@product.price)  %>
 </p>
 
 <p>
@@ -17,17 +17,17 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @product.description %>
+  <%= @product.description.html_safe %>
 </p>
 
 <p>
   <strong>Brand:</strong>
-  <%= @product.brand %>
+  <%= @product.brand.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category %>
+  <%= @product.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
