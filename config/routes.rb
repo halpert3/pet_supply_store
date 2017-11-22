@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	root 'products#index'
 
   scope :admin do
     resources :products
