@@ -1,0 +1,19 @@
+  <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Products', products_path %></li>
+        <li><%= link_to 'Brands', brands_path %></li>
+        <li><%= link_to 'Categories', categories_path %></li>
+   
+    <% if user_signed_in?  %>
+        <li><%= link_to 'Account', edit_user_registration_path %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Register', new_user_registration_path %></li>
+
+<% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
