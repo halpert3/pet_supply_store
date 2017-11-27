@@ -5,7 +5,10 @@ class Product < ApplicationRecord
 	has_attached_file :avatar, styles: {medium: "300x300>", thumb: "100x100>"}
 
 
-	validates :name, presence: true
+	validates :name, length: { minimum: 3 }
+	validates_presence_of :name, :price, :quantity, :brand, :quantity
+	validates_numericality_of :price, greater_than_or_equal_to: 0.01
+	validates_numericality_of :quantity, greater_than_or_equal_to: 0
 
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 end
