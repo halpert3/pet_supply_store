@@ -25,7 +25,7 @@
       
     </li>
     
-    <li><%= link_to 'Shop', shop_path %></li>
+
     <li><%= link_to 'About', about_path %></li>
   </ul>
   
@@ -38,8 +38,9 @@
           <%= form_tag(shop_path, method: :get, role: 'search', class: 'navbar-form') do %>
             <div class="form-group">
               <%= text_field_tag(:search, nil, placeholder: 'Search Products', class: 'form-control input-sm') %>
-            </div>
-            <%= submit_tag('Search', class: 'btn btn-default btn-sm') %>
+          
+              <%= submit_tag('Search', class: 'btn btn-default btn-sm') %>
+              </div>
           <% end %>
         </li>
         <!--<li><%= link_to 'Shop', shop_path %></li>-->

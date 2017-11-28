@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'kaminari'
 
 
 # Other stuff
