@@ -7,6 +7,8 @@
             <th>Quantity</th>
             <th>Unit Price</th>
             <th>Total Price</th>
+            <th>Thumbnail</th>
+            <th>Delete Item?</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +19,10 @@
                 <td><%= number_to_currency(item.price) %></td>
                 <td><%= number_to_currency(item.total_price) %></td> 
                 <!--write this in the total_price in the model in line_item.rb-->
-            </tr>
+                <td><%= image_tag item.product.avatar.url(:thumb), style: 'height:75px' %></td>
+                <td><%= link_to 'Delete Item', line_item_path(item), method: :delete, class: 'btn btn-danger btn-xs' %>
+                </td>
+            <!--</tr>-->
         <% end %>
     </tbody>
 </table>
