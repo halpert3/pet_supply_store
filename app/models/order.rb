@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :line_items, dependent: destroy
+  has_many :line_items, dependent: :destroy
+  
+  PAYMENT_TYPES = ['Check', 'Credit Card', 'PayPal', 'COD', 'Wampum'].sort #all caps because it's a constant
 end
 
 # == Schema Information

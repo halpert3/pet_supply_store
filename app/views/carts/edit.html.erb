@@ -28,7 +28,7 @@
 </table>
 
 <h3>Order Subtotal: <%= number_to_currency(@cart.subtotal) %></h3>
- <!--write this in the subtutal in the model in cart.rb-->
+ <!--write this in the subtotal in the model in cart.rb-->
 
 <%= link_to 'Continue Shopping', shop_path, class: 'btn btn-success btn-sm' %>
 
@@ -37,4 +37,7 @@
                           method: :delete,
                           data: { confirm: 'Are you sure?' },
                           class: 'btn btn-danger btn-sm' %>
+<div>
+    <%= link_to 'Checkout', new_order_path, class: 'btn btn-info btn-sm' %>
+</div>
 <% end %>
