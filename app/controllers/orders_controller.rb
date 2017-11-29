@@ -13,7 +13,27 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
   end
   
+  def create
+    @order = Order.new(order_params)
+    @order.user_id = current_user.id
+    @order.add_line_items_from_cart(@cart)
+    
+    if @order.save
+      Cart.destroy(session[:cart_id]) #if the order is succesful, we don't need the cart anymore. Kill in db.
+      session[:cart_id] = nil #this destroys it in the session which is cookied in browser
+      redirect_to shop_url, notice: 'Thanks for your order'
+    else
+      render :new #gives the form again so they can try again
+    end
+  end
   
   def show
   end
+  
+  private
+  
+  def order_params
+    params.require(:order).permit(:name, :address, :pay_type, :user_id)
+  end
+  
 end
