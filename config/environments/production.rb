@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  conf.paperclip_defaults = {
+  config.paperclip_defaults = {
     storage: :s3,
     s3_region: ENV['aws_sw_region'],
     s3_protocol: 'https',
