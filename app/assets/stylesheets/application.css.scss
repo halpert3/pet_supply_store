@@ -19,3 +19,14 @@
 @import 'brands';
 @import 'categories';
 @import 'products';
+
+#cart-buttons {
+    position: relative;
+    width: 100%;
+}
+
+.checkout-button {
+    right: 0px;
+ 
+    position: absolute;
+}
