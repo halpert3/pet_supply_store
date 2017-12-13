@@ -11,6 +11,10 @@ class Order < ApplicationRecord
     end
   end
   
+  def subtotal
+    line_items.select("SUM(quantity * price) AS sum")[0].sum
+  end
+  
 end
 
 # == Schema Information

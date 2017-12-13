@@ -21,7 +21,10 @@ class OrdersController < ApplicationController
     if @order.save
       Cart.destroy(session[:cart_id]) #if the order is succesful, we don't need the cart anymore. Kill in db.
       session[:cart_id] = nil #this destroys it in the session which is cookied in browser
-      redirect_to shop_url, notice: 'Thanks for your order'
+      
+      OrderConfirmationMailer.send_order_confirmation(current_user, @order).deliver_now
+      
+      redirect_to @order, notice: 'Thanks for your order' #still have to style and set up the order show view. 
     else
       render :new #gives the form again so they can try again
     end
